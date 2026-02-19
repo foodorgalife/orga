@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toolbelt Web</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Toolbelt Web</h1>
+      <p class="subtitle">A useful browser-based multi-tool built with HTML, CSS, and JavaScript.</p>
+
+      <section class="card">
+        <h2>Password Generator</h2>
+        <div class="row">
+          <label for="pw-length">Length</label>
+          <input id="pw-length" type="number" min="4" max="256" value="20" />
+          <label class="inline"><input id="pw-symbols" type="checkbox" checked /> Include symbols</label>
+          <button id="pw-generate">Generate</button>
+        </div>
+        <div class="output-row">
+          <input id="pw-output" readonly placeholder="Generated password" />
+          <button id="pw-copy">Copy</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Hash Generator</h2>
+        <div class="row">
+          <label for="hash-input">Text</label>
+          <input id="hash-input" type="text" placeholder="Type text to hash" />
+          <label for="hash-algo">Algorithm</label>
+          <select id="hash-algo">
+            <option value="SHA-256">SHA-256</option>
+            <option value="SHA-384">SHA-384</option>
+            <option value="SHA-512">SHA-512</option>
+          </select>
+          <button id="hash-generate">Hash</button>
+        </div>
+        <textarea id="hash-output" readonly rows="3" placeholder="Digest output"></textarea>
+      </section>
+
+      <section class="card">
+        <h2>JSON Formatter</h2>
+        <div class="row">
+          <label for="json-indent">Indent</label>
+          <input id="json-indent" type="number" min="0" max="8" value="2" />
+          <label class="inline"><input id="json-sort" type="checkbox" /> Sort keys</label>
+          <button id="json-format">Format JSON</button>
+        </div>
+        <textarea id="json-input" rows="6" placeholder='Paste JSON here, e.g. {"b":1,"a":2}'></textarea>
+        <textarea id="json-output" readonly rows="6" placeholder="Formatted JSON output"></textarea>
+        <p id="json-error" class="error"></p>
+      </section>
+
+      <section class="card">
+        <h2>Duplicate File Finder</h2>
+        <div class="row">
+          <input id="dupes-files" type="file" multiple />
+          <button id="dupes-check">Find duplicates</button>
+        </div>
+        <p class="note">Note: Browsers can only check files you manually select.</p>
+        <pre id="dupes-output">No results yet.</pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
